@@ -8,7 +8,6 @@
 int main(void)
 {
 	char *line;
-	int status;
 	int i;
 
 	while (1)
@@ -30,10 +29,8 @@ int main(void)
 			free(line);
 			continue;
 		}
-		status = exec_command(line);
+		exec_command(line);
 		free(line);
-		if (status == 0)
-			break;
 	}
 	return (0);
 }

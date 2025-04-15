@@ -12,6 +12,9 @@ int exec_command(char *cmd)
 	int status;
 	char *argv[2];
 
+	if(access(cmd, X_OK) == - 1)
+		return (-1);
+
 	argv[0] = cmd;
 	argv[1] = NULL;
 
