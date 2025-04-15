@@ -2,7 +2,6 @@
 
 /**
  * main - simple shell
- *
  * Return: Always 0 .
  */
 
