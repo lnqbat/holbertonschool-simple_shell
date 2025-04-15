@@ -9,10 +9,12 @@ int main(void)
 {
 	char *line;
 	int i;
-
+	int is_prompt;
 	while (1)
 	{
-		print_prompt();
+		is_prompt = isatty(STDIN_FILENO);
+		if(is_prompt == 1)
+			print_prompt();
 
 		line = read_input();
 		if (line == NULL)
