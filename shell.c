@@ -14,7 +14,7 @@ int main(void)
 	size_t len = 0;
 	ssize_t nread;
 	pid_t pid;
-	char *argv[] = {line, NULL};
+	char *argv[2] = {NULL, NULL};
 	int status;
 
 	while (1)
@@ -29,6 +29,8 @@ int main(void)
 		if (line[nread - 1] == '\n')
 			line[nread - 1] = '\0';
 
+		argv[0] = line;
+		argv[1] = NULL;
 		pid = fork();
 		if (pid == -1)
 		{
