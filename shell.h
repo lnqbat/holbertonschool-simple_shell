@@ -8,6 +8,11 @@
 #include <stdlib.h>
 #include <string.h>
 
+extern char **environ;
 
+void print_prompt(void);
+char *read_input(void);
+
+int exec_command(char *cmd);
 
 #endif
