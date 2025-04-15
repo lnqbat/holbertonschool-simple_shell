@@ -4,12 +4,10 @@
 #include <sys/types.h>
 #include <stdlib.h>
 #include <string.h>
-
 /**
- * main - simple shell
- * Return: Always 0 .
+ * main - Super simple shell
+ * Return: ouille if close
  */
-
 int main(void)
 {
 	char *line = NULL;
@@ -17,6 +15,7 @@ int main(void)
 	ssize_t nread;
 	pid_t pid;
 	char *argv[] = {line, NULL};
+	int status;
 
 	while (1)
 	{
@@ -39,10 +38,13 @@ int main(void)
 		{
 			if (execve(line, argv, NULL) == -1)
 				perror("execve");
+			free(line);
 			exit(1);
 		}
 		else
-			wait(NULL);
+		{
+			wait(&status);
+		}
 	}
 	free(line);
 	return (0);
