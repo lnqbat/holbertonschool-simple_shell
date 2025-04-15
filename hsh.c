@@ -1,4 +1,9 @@
-#include "shell.h"
+#include <stdio.h>
+#include <unistd.h>
+#include <sys/wait.h>
+#include <sys/types.h>
+#include <stdlib.h>
+#include <string.h>
 
 /**
  * main - simple shell
@@ -22,10 +27,8 @@ int main(void)
 			perror("Ouille");
 			break;
 		}
-
 		if (line[nread - 1] == '\n')
 		line[nread - 1] = '\0';
-
 		pid = fork();
 		if (pid == -1)
 		{
@@ -35,9 +38,7 @@ int main(void)
 		if (pid == 0)
 		{
 			if (execve(line, argv, NULL) == -1)
-			{
 				perror("execve");
-			}
 			exit(1);
 		}
 		else
@@ -46,4 +47,3 @@ int main(void)
 	free(line);
 	return (0);
 }
-
