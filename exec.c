@@ -15,7 +15,7 @@ int exec_command(char *cmd)
 	argv = tokenize(cmd);
 	if (argv == NULL || argv[0] == NULL)
 	{
-		free(argv);
+		free_argv(argv);
 		return (-1);
 	}
 	if (access(argv[0], F_OK) == -1)
@@ -23,28 +23,28 @@ int exec_command(char *cmd)
 		path_full = _which(argv[0]);
 		if (path_full == NULL)
 		{
-			free(argv);
+			free_argv(argv);
 			return (-1);
 		}
 		else
+		{
+			free(argv[0]);
 			argv[0] = path_full;
+		}
 	}
 	pid = fork();
 	if (pid == -1)
 	{
-		free(argv);
+		free_argv(argv);
 		return (-1);
 	}
 	else if (pid == 0)
 	{
 		if (execve(argv[0], argv, environ) == -1)
-		{
-			perror("Error execve");
 			exit(EXIT_FAILURE);
-		}
 	}
 	else
 		wait(&status);
-	free(argv);
+	free_argv(argv);
 	return (0);
 }
