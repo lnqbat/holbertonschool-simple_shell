@@ -13,6 +13,7 @@ extern char **environ;
 void print_prompt(void);
 char *read_input(void);
 
-int exec_command(char *cmd);
 char **tokenize(char *cmd);
+
+int exec_command(char *cmd);
 #endif
