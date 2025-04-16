@@ -2,7 +2,7 @@
 
 /**
  * exec_command - execute command
- * @command: command to execute
+ * @cmd: command to execute
  * Return: 0 on success,
  */
 
@@ -13,21 +13,18 @@ int exec_command(char *cmd)
 	char **argv;
 
 	argv = tokenize(cmd);
-	if (argv[0] == NULL || argv == NULL)
+	if (argv == NULL || argv[0] == NULL)
 	{
+		free(argv);
 		perror("tokenization !");
 		return (-1);
 	}
-	if(access(argv[0], X_OK) == - 1)
+	if (access(argv[0], F_OK) == -1)
 	{
 		perror("command not found");
 		free(argv);
 		return (-1);
 	}
-	/**
-	argv[0] = cmd;
-	argv[1] = NULL;
-*/
 	pid = fork();
 	if (pid == -1)
 	{
@@ -44,9 +41,7 @@ int exec_command(char *cmd)
 		}
 	}
 	else
-	{
 		wait(&status);
-	}
 	free(argv);
 	return (0);
 }
