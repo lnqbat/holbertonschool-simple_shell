@@ -14,6 +14,7 @@ void print_prompt(void);
 char *read_input(void);
 
 char **tokenize(char *cmd);
+char *_getenv(char *name);
 
 int exec_command(char *cmd);
 char *_which(const char *filename);
