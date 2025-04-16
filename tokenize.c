@@ -11,11 +11,12 @@ char **tokenize(char *cmd)
 	int bsize = 80, i = 0;
 	char *token;
 
-	argv = malloc(sizeof(char*) * bsize);
+	argv = malloc(sizeof(char *) * bsize);
 	if (argv == NULL)
-		return NULL;
+		return (NULL);
+
 	token = strtok(cmd, " \t\n");
-	while (token != NULL && i < bsize -1)
+	while (token != NULL && i < bsize - 1)
 	{
 		argv[i++] = token;
 		token = strtok(NULL, " \t\n");
