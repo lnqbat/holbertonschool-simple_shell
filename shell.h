@@ -16,4 +16,6 @@ char *read_input(void);
 char **tokenize(char *cmd);
 
 int exec_command(char *cmd);
+char *_which(const char *filename);
+
 #endif
