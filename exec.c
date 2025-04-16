@@ -10,7 +10,7 @@ int exec_command(char *cmd)
 {
 	pid_t pid;
 	int status;
-	char **argv;
+	char **argv, *path_full;
 
 	argv = tokenize(cmd);
 	if (argv == NULL || argv[0] == NULL)
@@ -20,14 +20,18 @@ int exec_command(char *cmd)
 	}
 	if (access(argv[0], F_OK) == -1)
 	{
-		perror("command not found");
-		free(argv);
-		return (-1);
+		path_full = _which(argv[0]);
+		if (path_full == NULL)
+		{
+			free(argv);
+			return (-1);
+		}
+		else
+			argv[0] = path_full;
 	}
 	pid = fork();
 	if (pid == -1)
 	{
-		perror("fork");
 		free(argv);
 		return (-1);
 	}
@@ -41,6 +45,7 @@ int exec_command(char *cmd)
 	}
 	else
 		wait(&status);
+	free(path_full);
 	free(argv);
 	return (0);
 }
