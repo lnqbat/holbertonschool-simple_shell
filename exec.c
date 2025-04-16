@@ -45,7 +45,6 @@ int exec_command(char *cmd)
 	}
 	else
 		wait(&status);
-	free(path_full);
 	free(argv);
 	return (0);
 }
