@@ -14,7 +14,7 @@ char *_which(const char *filename)
 	size_t len;
 	char *full_path;
 
-	path = getenv("PATH");
+	path = _getenv("PATH");
 	if (path == NULL)
 		return (NULL);
 
