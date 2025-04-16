@@ -16,7 +16,6 @@ int exec_command(char *cmd)
 	if (argv == NULL || argv[0] == NULL)
 	{
 		free(argv);
-		perror("tokenization !");
 		return (-1);
 	}
 	if (access(argv[0], F_OK) == -1)
