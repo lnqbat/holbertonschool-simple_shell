@@ -7,7 +7,7 @@
 
 void print_prompt(void)
 {
-	printf("#cisfun$ ");
+	printf("#cisfun$");
 }
 
 /**
@@ -28,6 +28,6 @@ char *read_input(void)
 		return (NULL);
 	}
 	if (line[nread - 1] == '\n')
-		line[nread - 1] = '\0';
+	line[nread - 1] = '\0';
 	return (line);
 }

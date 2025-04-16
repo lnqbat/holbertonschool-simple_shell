@@ -24,7 +24,7 @@ int main(void)
 		}
 
 		i = 0;
-		while (line[i] == ' ' || line[i] == '\t')
+		while (line[i] == ' ' || line[i] == '\t' || line[i] == '\n')
 			i++;
 		if (line[i] == '\0')
 		{
