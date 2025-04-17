@@ -21,7 +21,7 @@ char *_which(const char *filename)
 	path_copy = strdup(path);
 	if (path_copy == NULL)
 		return (NULL);
-
+	path = NULL;
 	token = strtok(path_copy, ":");
 	while (token != NULL)
 	{
