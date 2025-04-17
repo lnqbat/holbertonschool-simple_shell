@@ -19,7 +19,7 @@ int exec_command(char *cmd)
 		return (-1);
 	}
 	slashed = have_slash(argv[0]);
-	if (slashed == 1)
+	if (slashed == 0)
 	{
 		path_full = _which(argv[0]);
 		if (path_full == NULL)
@@ -35,7 +35,7 @@ int exec_command(char *cmd)
 			argv[0] = path_full;
 		}
 	}
-	else if (access(argv[0], F_OK) == 0)
+	if (access(argv[0], F_OK) == 0)
 	{
 		pid = fork();
 		if (pid == -1)
@@ -50,6 +50,13 @@ int exec_command(char *cmd)
 		}
 		else
 			waitpid(pid, &status, 0);
+	}
+	else
+	{
+		fprintf(stderr, "./hsh: 1: %s: not found\n", argv[0]);
+		free_argv(argv);
+		free(cmd);
+		exit(127);
 	}
 	free_argv(argv);
 	return (0);
