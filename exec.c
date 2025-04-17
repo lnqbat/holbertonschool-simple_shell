@@ -25,6 +25,7 @@ int exec_command(char *cmd)
 		{
 			fprintf(stderr, "./hsh: 1: %s: not found\n", argv[0]);
 			free_argv(argv);
+			free(cmd);
 			exit(127);
 		}
 		else
@@ -45,7 +46,7 @@ int exec_command(char *cmd)
 			exit(EXIT_FAILURE);
 	}
 	else
-		wait(&status);
+		    waitpid(pid, &status, 0);
 	free_argv(argv);
 	return (0);
 }
