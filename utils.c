@@ -16,3 +16,21 @@ void free_argv(char **argv)
 		free(argv[i++]);
 	free(argv);
 }
+
+
+/**
+ *
+ *
+ */
+
+int have_slash(char *argv)
+{
+	int i;
+
+	for (i = 0; argv[i]; i++)
+	{
+		if (argv[i] == '/')
+			return (1);
+	}
+	return (0);
+}
