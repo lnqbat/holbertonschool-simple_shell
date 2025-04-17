@@ -15,9 +15,7 @@ int exec_command(char *cmd)
 	argv = tokenize(cmd);
 	if (argv == NULL || argv[0] == NULL)
 	{
-		for (i = 0; argv[i]; i++)
-			free(argv[i]);
-		free(argv);
+		free_argv(argv);
 		return (-1);
 	}
 	if (access(argv[0], F_OK) == -1)
@@ -25,10 +23,9 @@ int exec_command(char *cmd)
 		path_full = _which(argv[0]);
 		if (path_full == NULL)
 		{
-			for (i = 0; argv[i]; i++)
-				free(argv[i]);
-			free(argv);
-			return (-1);
+			fprintf(stderr, "./hsh: 1: %s: not found\n", argv[0]);
+			free_argv(argv);
+			return (0);
 		}
 		else
 		{
@@ -39,23 +36,16 @@ int exec_command(char *cmd)
 	pid = fork();
 	if (pid == -1)
 	{
-		for (i = 0; argv[i]; i++)
-			free(argv[i]);
-		free(argv);
+		free_argv(argv);
 		return (-1);
 	}
 	else if (pid == 0)
 	{
-		if (execve(argv[0], argv, NULL) == -1)
-		{
-			perror("Error execve");
+		if (execve(argv[0], argv, environ) == -1)
 			exit(EXIT_FAILURE);
-		}
 	}
 	else
 		wait(&status);
-	for (i = 0; argv[i]; i++)
-		free(argv[i]);
-	free(argv);
+	free_argv(argv);
 	return (0);
 }
