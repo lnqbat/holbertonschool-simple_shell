@@ -19,7 +19,6 @@ char *_getenv(char *name)
 		}
 		env++;
 	}
-	free(env);
 	return (NULL);
 }
 
