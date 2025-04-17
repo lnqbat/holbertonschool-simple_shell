@@ -14,6 +14,8 @@ char *_which(const char *filename)
 	size_t len;
 	char *full_path;
 
+	if (strchr(filename, '/'))
+		return (NULL);
 	path = _getenv("PATH");
 	if (path == NULL)
 		return (NULL);
