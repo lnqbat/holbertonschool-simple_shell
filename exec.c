@@ -25,7 +25,7 @@ int exec_command(char *cmd)
 		{
 			fprintf(stderr, "./hsh: 1: %s: not found\n", argv[0]);
 			free_argv(argv);
-			return (127);
+			return (0);
 		}
 		else
 		{
