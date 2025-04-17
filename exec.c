@@ -23,8 +23,9 @@ int exec_command(char *cmd)
 		path_full = _which(argv[0]);
 		if (path_full == NULL)
 		{
+			fprintf(stderr, "./hsh: 1: %s: not found\n", argv[0]);
 			free_argv(argv);
-			return (-1);
+			return (127);
 		}
 		else
 		{
