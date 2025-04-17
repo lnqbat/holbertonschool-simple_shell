@@ -9,7 +9,7 @@
 int exec_command(char *cmd)
 {
 	pid_t pid;
-	int status, i;
+	int status;
 	char **argv, *path_full;
 
 	argv = tokenize(cmd);
@@ -25,7 +25,7 @@ int exec_command(char *cmd)
 		{
 			fprintf(stderr, "./hsh: 1: %s: not found\n", argv[0]);
 			free_argv(argv);
-			return (0);
+			exit(127);
 		}
 		else
 		{
