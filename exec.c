@@ -21,7 +21,7 @@ int exec_command(char *cmd)
                 {
                         free_argv(argv);
                         free(cmd);
-                        exit(EXIT_SUCCESS);
+                        exit(2);
                 }
 	if (!strchr(argv[0], '/'))
 	{
