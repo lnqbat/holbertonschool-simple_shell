@@ -18,11 +18,11 @@ int exec_command(char *cmd)
 		return (-1);
 	}
 	else if (strcmp(argv[0], "exit") == 0)
-                {
-                        free_argv(argv);
-                        free(cmd);
-                        exit(2);
-                }
+	{
+		free_argv(argv);
+		free(cmd);
+		exit(0);
+	}
 	if (!strchr(argv[0], '/'))
 	{
 		path_full = _which(argv[0]);
