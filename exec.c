@@ -5,7 +5,6 @@
  * @cmd: command to execute
  * Return: 0 on success,
  */
-
 int exec_command(char *cmd)
 {
 	pid_t pid;
@@ -18,7 +17,7 @@ int exec_command(char *cmd)
 		free_argv(argv);
 		return (-1);
 	}
-	if (access(argv[0], F_OK) == -1)
+	if (!strchr(argv[0], '/'))
 	{
 		path_full = _which(argv[0]);
 		if (path_full == NULL)
@@ -34,6 +33,15 @@ int exec_command(char *cmd)
 			argv[0] = path_full;
 		}
 	}
+
+	if (access(argv[0], F_OK) == -1)
+	{
+		fprintf(stderr, "./hsh: 1: %s: not found\n", argv[0]);
+		free_argv(argv);
+		free(cmd);
+		exit(127);
+	}
+
 	pid = fork();
 	if (pid == -1)
 	{
@@ -46,7 +54,7 @@ int exec_command(char *cmd)
 			exit(EXIT_FAILURE);
 	}
 	else
-		    waitpid(pid, &status, 0);
+		waitpid(pid, &status, 0);
 	free_argv(argv);
 	return (0);
 }
