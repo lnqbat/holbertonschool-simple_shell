@@ -81,6 +81,6 @@ int exit_command(char **argv)
 		}
 		exit(0);
 	}
-	return (2);
+	return (0);
 }
 
