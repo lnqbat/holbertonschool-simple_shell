@@ -7,7 +7,8 @@
 #include <sys/types.h>
 #include <stdlib.h>
 #include <string.h>
-
+#define INT_MIN (-2147483648)
+#define INT_MAX (2147483647)
 extern char **environ;
 
 void print_prompt(void);
@@ -18,5 +19,5 @@ char *_getenv(char *name);
 int free_argv(char **argv);
 int exec_command(char *cmd);
 char *_which(const char *filename);
-
+int _atoi(char *s);
 #endif
