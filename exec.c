@@ -28,7 +28,7 @@ int exec_command(char *cmd)
 	{
 		free_argv(argv);
 		free(cmd);
-		exit(0);
+		exit(EXIT_SUCCESS);
 	}
 	if (!strchr(argv[0], '/'))
 	{
@@ -38,7 +38,7 @@ int exec_command(char *cmd)
 			fprintf(stderr, "./hsh: 1: %s: not found\n", argv[0]);
 			free_argv(argv);
 			free(cmd);
-			exit(127);
+			exit(2);
 		}
 		else
 		{
