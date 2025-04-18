@@ -17,6 +17,13 @@ int exec_command(char *cmd)
 		free_argv(argv);
 		return (-1);
 	}
+	if (exit_command(argv))
+	{
+		free_argv(argv);
+		free(cmd);
+		return(0);
+	}
+
 	else if (strcmp(argv[0], "exit") == 0)
 	{
 		free_argv(argv);
