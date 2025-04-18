@@ -11,6 +11,7 @@ int exec_command(char *cmd)
 	int status;
 	char **argv, *path_full;
 
+
 	argv = tokenize(cmd);
 	if (argv == NULL || argv[0] == NULL)
 	{
@@ -19,18 +20,21 @@ int exec_command(char *cmd)
 	}
 	if (!strchr(argv[0], '/'))
 	{
-		path_full = _which(argv[0]);
-		if (path_full == NULL)
+		if (access(argv[0], F_OK) == -1)
 		{
-			fprintf(stderr, "./hsh: 1: %s: not found\n", argv[0]);
-			free_argv(argv);
-			free(cmd);
-			exit(127);
-		}
-		else
-		{
-			free(argv[0]);
-			argv[0] = path_full;
+			path_full = _which(argv[0]);
+			if (path_full == NULL)
+			{
+				fprintf(stderr, "./hsh: 1: %s: not found\n", argv[0]);
+				free_argv(argv);
+				free(cmd);
+				exit(127);
+			}
+			else
+			{
+				free(argv[0]);
+				argv[0] = path_full;
+			}
 		}
 	}
 
