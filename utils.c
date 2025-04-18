@@ -79,8 +79,8 @@ int exit_command(char **argv)
 
 			exit(exit_code);
 		}
-		exit(2);
+		exit(0);
 	}
-	return (0);
+	return (2);
 }
 
