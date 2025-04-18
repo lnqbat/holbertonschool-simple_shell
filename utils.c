@@ -60,3 +60,27 @@ int _atoi(char *s)
 
 	return ((int)result * is_minus);
 }
+
+/**
+ * exit_command - Handles the built-in 'exit' command
+ * @argv: array of command arguments
+ * Return:  'exit' was handled
+ */
+
+int exit_command(char **argv)
+{
+	int exit_code;
+
+	if (argv[0] && strcmp(argv[0], "exit") == 0)
+	{
+		if (argv[1])
+		{
+			exit_code = atoi(argv[1]);
+
+			exit(exit_code);
+		}
+		exit(0);
+	}
+	return (0);
+}
+
