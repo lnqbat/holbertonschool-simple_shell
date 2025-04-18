@@ -20,8 +20,6 @@ int exec_command(char *cmd)
 	}
 	if (!strchr(argv[0], '/'))
 	{
-		if (access(argv[0], F_OK) == -1)
-		{
 			path_full = _which(argv[0]);
 			if (path_full == NULL)
 			{
@@ -35,7 +33,6 @@ int exec_command(char *cmd)
 				free(argv[0]);
 				argv[0] = path_full;
 			}
-		}
 	}
 
 	if (access(argv[0], F_OK) == -1)
