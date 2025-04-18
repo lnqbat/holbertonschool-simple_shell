@@ -11,13 +11,22 @@ int exec_command(char *cmd)
 	int status;
 	char **argv, *path_full;
 
-
+	if (strcmp(cmd, "exit"))
+	{
+		exit(EXIT_SUCCESS);
+	}
 	argv = tokenize(cmd);
 	if (argv == NULL || argv[0] == NULL)
 	{
 		free_argv(argv);
 		return (-1);
 	}
+	if (strcmp(argv[0], "exit") == 0)
+        {
+		free_argv(argv);
+		free(cmd);
+                exit(EXIT_SUCCESS);
+        }
 	if (!strchr(argv[0], '/'))
 	{
 			path_full = _which(argv[0]);
