@@ -15,6 +15,7 @@ char *_which(const char *filename)
 	char *full_path;
 
 	path = _getenv("PATH");
+	printf("PATH PATH %s", path);
 	if (path == NULL)
 		return (NULL);
 
@@ -22,6 +23,8 @@ char *_which(const char *filename)
 	if (path_copy == NULL)
 		return (NULL);
 	token = strtok(path_copy, ":");
+
+	printf("This is a debug of token %s", token);
 	while (token != NULL)
 	{
 		len = strlen(token) + strlen(filename) + 2;
