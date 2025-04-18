@@ -15,7 +15,7 @@ char *read_input(void);
 
 char **tokenize(char *cmd);
 char *_getenv(char *name);
-void free_argv(char **argv);
+int free_argv(char **argv);
 int exec_command(char *cmd);
 char *_which(const char *filename);
 
