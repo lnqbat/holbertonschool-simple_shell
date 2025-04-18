@@ -15,7 +15,8 @@ char *_getenv(char *name)
 	{
 		if (strncmp(*env, name, len) == 0 && (*env)[len] == '=')
 		{
-			return (*env);
+			// PATH=/home/... => /home/...
+			return (*env + (len + 1));
 		}
 		env++;
 	}
