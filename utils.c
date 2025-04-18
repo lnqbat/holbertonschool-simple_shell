@@ -79,7 +79,7 @@ int exit_command(char **argv)
 
 			exit(exit_code);
 		}
-		exit(0);
+		exit(2);
 	}
 	return (0);
 }
