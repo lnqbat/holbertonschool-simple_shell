@@ -77,10 +77,10 @@ int exit_command(char **argv)
 		{
 			exit_code = atoi(argv[1]);
 
-			exit(exit_code);
+			return(exit_code);
 		}
-		exit(0);
+		return (0);
 	}
-	return (0);
+	return (-1);
 }
 
