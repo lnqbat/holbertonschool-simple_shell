@@ -8,7 +8,7 @@
 int exec_command(char *cmd)
 {
 	pid_t pid;
-	int status;
+	int status, ret;
 	char **argv, *path_full;
 
 	argv = tokenize(cmd);
@@ -16,6 +16,13 @@ int exec_command(char *cmd)
 	{
 		free_argv(argv);
 		return (-1);
+	}
+	ret = exit_command(argv);
+	if (ret >= 0)
+	{       
+		free_argv(argv);
+		free(cmd);
+		exit(ret);
 	}
 	if (!strchr(argv[0], '/'))
 	{
@@ -33,18 +40,12 @@ int exec_command(char *cmd)
 			argv[0] = path_full;
 		}
 	}
-	if (access(argv[0], F_OK) == -1)
+	if (access(argv[0], X_OK) == -1)
 	{
 		fprintf(stderr, "./hsh: 1: %s: not found\n", argv[0]);
 		free_argv(argv);
 		free(cmd);
 		exit(127);
-	}
-	if (exit_command(argv))
-	{       
-		free_argv(argv);
-		free(cmd);
-		return(0);
 	}
 	pid = fork();
 	if (pid == -1)
