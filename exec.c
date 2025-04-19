@@ -2,28 +2,17 @@
 
 /**
  * exec_command - execute command
- * @cmd: command to execute
+ * @argv: command tokenised to execute
+ * @line: need to free if necessaire
+ * @last_status: pointer to keep the status of processus children
  * Return: 0 on success,
  */
-int exec_command(char *cmd)
+int exec_command(char **argv, char *line, int *last_status)
 {
 	pid_t pid;
-	int status, ret;
-	char **argv, *path_full;
+	int status;
+	char *path_full;
 
-	argv = tokenize(cmd);
-	if (argv == NULL || argv[0] == NULL)
-	{
-		free_argv(argv);
-		return (-1);
-	}
-	ret = exit_command(argv);
-	if (ret >= 0)
-	{       
-		free_argv(argv);
-		free(cmd);
-		exit(ret);
-	}
 	if (!strchr(argv[0], '/'))
 	{
 		path_full = _which(argv[0]);
@@ -31,7 +20,7 @@ int exec_command(char *cmd)
 		{
 			fprintf(stderr, "./hsh: 1: %s: not found\n", argv[0]);
 			free_argv(argv);
-			free(cmd);
+			free(line);
 			exit(127);
 		}
 		else
@@ -44,7 +33,7 @@ int exec_command(char *cmd)
 	{
 		fprintf(stderr, "./hsh: 1: %s: not found\n", argv[0]);
 		free_argv(argv);
-		free(cmd);
+		free(line);
 		exit(127);
 	}
 	pid = fork();
@@ -59,7 +48,9 @@ int exec_command(char *cmd)
 			exit(EXIT_FAILURE);
 	}
 	else
-		waitpid(pid, &status, 0);
+	{	waitpid(pid, &status, 0);
+		*last_status = WEXITSTATUS(status);
+	}
 	free_argv(argv);
 	return (0);
 }

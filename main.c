@@ -8,7 +8,8 @@
 int main(void)
 {
 	char *line;
-	int is_prompt;
+	int is_prompt, ret, last_status = 0;
+	char **argv;
 
 	while (1)
 	{
@@ -20,7 +21,22 @@ int main(void)
 		if (line == NULL)
 			break;
 
-		exec_command(line);
+		argv = tokenize(line);
+		if (argv == NULL || argv[0] == NULL)
+		{
+			free_argv(argv);
+			free(line);
+			return (-1);
+		}
+		ret = exit_command(argv, &last_status);
+		if (ret >= 0)
+		{
+			free_argv(argv);
+			free(line);
+			exit(ret);
+		}
+
+		exec_command(argv, line, &last_status);
 		free(line);
 	}
 	return (0);
