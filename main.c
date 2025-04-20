@@ -35,6 +35,13 @@ int main(void)
 			free(line);
 			exit(ret);
 		}
+		if (strcmp(argv[0], "env") == 0)
+		{
+			env_builtin();
+			free_argv(argv);
+			free(line);
+			continue;
+		}
 		argv = find_path(argv, line);
 		exec_command(argv, &last_status);
 		free(line);
