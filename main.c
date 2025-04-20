@@ -46,5 +46,5 @@ int main(void)
 		exec_command(argv, &last_status);
 		free(line);
 	}
-	return (0);
+	return (last_status);
 }
