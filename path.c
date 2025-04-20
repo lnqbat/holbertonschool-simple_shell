@@ -50,3 +50,41 @@ char *_which(const char *filename)
 	return (NULL);
 }
 
+/**
+ * find_path - find path of command lauched
+ * @argv: command tokenised to execute
+ * @line: need to free if necessaire
+ * Return: a complete path of command called in argv[0]
+ */
+
+char **find_path(char **argv, char *line)
+{
+	char *path_full;
+
+	if (!strchr(argv[0], '/'))
+	{
+		path_full = _which(argv[0]);
+		if (path_full == NULL)
+		{
+			fprintf(stderr, "./hsh: 1: %s: not found\n", argv[0]);
+			free_argv(argv);
+			free(line);
+			exit(127);
+		}
+		else
+		{
+			free(argv[0]);
+			argv[0] = path_full;
+		}
+	}
+	if (access(argv[0], X_OK) == -1)
+	{
+		fprintf(stderr, "./hsh: 1: %s: not found\n", argv[0]);
+		free_argv(argv);
+		free(line);
+		exit(127);
+	}
+
+	return (argv);
+
+}
