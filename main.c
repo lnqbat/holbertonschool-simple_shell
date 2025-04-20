@@ -35,8 +35,8 @@ int main(void)
 			free(line);
 			exit(ret);
 		}
-
-		exec_command(argv, line, &last_status);
+		argv = find_path(argv, line);
+		exec_command(argv, &last_status);
 		free(line);
 	}
 	return (0);
