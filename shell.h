@@ -21,7 +21,8 @@ char *_getenv(char *name);
 int free_argv(char **argv);
 int _atoi(char *s);
 int exit_command(char **argv, int *last_status);
+char **find_path(char **argv, char *line);
+int exec_command(char **argv, int *last_status);
 
-int exec_command(char **argv, char *line, int *last_status);
 char *_which(const char *filename);
 #endif
