@@ -26,7 +26,7 @@ int main(void)
 		{
 			free_argv(argv);
 			free(line);
-			return (-1);
+			continue;
 		}
 		ret = exit_command(argv, &last_status);
 		if (ret >= 0)
