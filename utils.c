@@ -76,7 +76,7 @@ int exit_command(char **argv, int *last_status)
 	if (argv[0] && strcmp(argv[0], "exit") == 0)
 	{
 		if (argv[1])
-			exit_code = atoi(argv[1]);
+			exit_code = _atoi(argv[1]);
 		else
 			exit_code = *last_status;
 
@@ -85,3 +85,19 @@ int exit_command(char **argv, int *last_status)
 	return (-1);
 }
 
+/**
+ * env_builtin - Prints all environment variables to standard output
+ * @i: counter loop env
+ */
+
+int env_builtin(void)
+{
+	int i = 0;
+
+	while (environ[i] != NULL)
+	{
+		printf("%s\n", environ[i]);
+		i++;
+	}
+	return (0);
+}
