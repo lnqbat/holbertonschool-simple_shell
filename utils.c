@@ -87,7 +87,7 @@ int exit_command(char **argv, int *last_status)
 
 /**
  * env_builtin - Prints all environment variables to standard output
- * @i: counter loop env
+ * Return: 0 .
  */
 
 int env_builtin(void)
