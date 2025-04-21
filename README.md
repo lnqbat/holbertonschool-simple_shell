@@ -1,12 +1,12 @@
 # <center>**Holbertonschool_Simple_SHELL**</center>
-[![holberton School](https://scontent-cdg4-2.xx.fbcdn.net/v/t39.30808-6/429641439_792522079563968_5846022648137048441_n.png?_nc_cat=101&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=gPri-gCHPEgQ7kNvgFfNYaA&_nc_oc=AdlGUARgCWe79_vihY-EZXOK3xisaeAMje9m008lWwWlAeOh6BH9YOzh4Yif5RVshFc&_nc_zt=23&_nc_ht=scontent-cdg4-2.xx&_nc_gid=QQjssMYool4v0a4VESD7tA&oh=00_AYGUDi_B1S-IjyP9OL6eG9K4IkBOywsavhCboLvVgPcQ7A&oe=67E84BB3)](https://www.holbertonschool.fr/)
+[![holberton School](https://github.com/lnqbat/holbertonschool-simple_shell/blob/dev/Image/Holberton.png)](https://www.holbertonschool.fr/)
 
 ## <ins>Overview
 - [Project_Simple_SHELL](#project_simple_shell)
     - [Description](#-description)
     - [Features](#-features)
-    - [Technology](#-technology)
-    - [Structure_project](#️-structure_project)
+    - [Technology](#️-technology)
+    - [Structure_project](#-structure_project)
 - [How_to_Compile](#-how_to_compile)
     - [How_to_Use](#-how_to_use)
 - [Requirements](#-requirements)
