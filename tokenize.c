@@ -12,12 +12,12 @@ char **tokenize(char *line)
 	int bsize = 80, j, i = 0;
 	char *token;
 
-	argv = malloc(sizeof(char *) * bsize);
+	argv = malloc(sizeof(char *) * bsize);	/* Memory allocation to array*/
 	if (argv == NULL)
 		return (NULL);
 
 	token = strtok(line, " \t\n");
-	while (token != NULL && i < bsize - 1)
+	while (token != NULL && i < bsize - 1) /* Words are attribuate to array[str]*/
 	{
 		argv[i] = strdup(token);
 		if (argv[i] == NULL)

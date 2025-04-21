@@ -14,14 +14,14 @@ char *_which(const char *filename)
 	size_t len;
 	char *full_path;
 
-	path = _getenv("PATH");
+	path = _getenv("PATH");	/* Keep env in varible*/
 	if (path == NULL)
 		return (NULL);
 
-	path_copy = strdup(path);
+	path_copy = strdup(path);	/* Copy path to protect it*/
 	if (path_copy == NULL)
 		return (NULL);
-	token = strtok(path_copy, ":");
+	token = strtok(path_copy, ":"); /* Sort all element of path*/
 
 	while (token != NULL)
 	{
@@ -33,8 +33,8 @@ char *_which(const char *filename)
 			return (NULL);
 		}
 
-		strcpy(full_path, token);
-		strcat(full_path, "/");
+		strcpy(full_path, token);	/* Attribute to full_path all possibility */
+		strcat(full_path, "/");		/* And chek with access if exist*/
 		strcat(full_path, filename);
 
 		if (access(full_path, F_OK) == 0)
@@ -61,9 +61,9 @@ char **find_path(char **argv, char *line)
 {
 	char *path_full;
 
-	if (!strchr(argv[0], '/'))
+	if (!strchr(argv[0], '/'))	/* Control if containig '/'*/
 	{
-		path_full = _which(argv[0]);
+		path_full = _which(argv[0]);	/*return complet path in variable*/
 		if (path_full == NULL)
 		{
 			fprintf(stderr, "./hsh: 1: %s: not found\n", argv[0]);
@@ -77,7 +77,7 @@ char **find_path(char **argv, char *line)
 			argv[0] = path_full;
 		}
 	}
-	if (access(argv[0], X_OK) == -1)
+	if (access(argv[0], X_OK) == -1)	/* Check if executable is accessible*/
 	{
 		fprintf(stderr, "./hsh: 1: %s: not found\n", argv[0]);
 		free_argv(argv);
