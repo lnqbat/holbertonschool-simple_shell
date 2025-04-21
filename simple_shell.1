@@ -1,0 +1,83 @@
+.TH SIMPLE_SHELL 1 "Holberton School project" "April 2025"
+
+.SH NAME
+simple shell
+
+.SH SYNOPSIS
+.B ./shell
+.br
+.b command [argument ...]
+
+.SH DESCRIPTION
+.B simple_shell
+is a basic Unix shell written in C. It reads user input, parses it, and executes the corresponding commands. It supports execution of external programs as well as a limited set of built-in commands.
+
+SH BUILT-IN COMMANDS
+.TP
+.B exit [status]
+Exit the shell with a status.
+
+.TP
+.B env
+Display the current environment variables.
+
+.SH EXIT STATUS
+.B simple_shell
+returns an exit code based on the execution context:
+
+.TP
+.B 0
+Returned when no command has been executed or a command succeeded.
+
+.TP
+.B 127
+Returned when a command cannot be found in the PATH.
+
+.TP
+.B n
+If a command is executed, its exit status is returned by the shell.
+
+.TP
+.B exit n
+When
+.B exit
+is used with a numeric value, the shell exits with that value.
+
+.SH EXAMPLES
+
+Start the shell in interactive mode:
+
+    $ ./simple_shell
+    $ ls
+    simple_shell  main.c  README.md
+    $ echo Hello
+    Hello
+    $ exit
+
+Use the shell in non-interactive mode with a single command:
+
+    $ echo "env" | ./simple_shell
+    PATH=/usr/local/bin:/usr/bin:/bin
+    HOME=/home/user
+    ...
+
+Execute multiple commands from a script file:
+
+    $ cat script.txt
+    echo Testing shell
+    ls
+    exit 98
+
+    $ ./simple_shell < script.txt
+    Testing shell
+    simple_shell  main.c  README.md
+
+    $ echo $?
+    98 
+
+.SH AUTHORS
+Projet: Holberton School simple_shell.
+.br
+Authors: written by Baptiste and Jeffrey.
+.br
+GitHub:	https://github.com/lnqbat/holbertonschool-simple_shell
