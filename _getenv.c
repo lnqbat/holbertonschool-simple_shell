@@ -15,7 +15,7 @@ char *_getenv(char *name)
 	{
 		if (strncmp(*env, name, len) == 0 && (*env)[len] == '=')
 		{
-			return (*env + (len + 1));
+			return (*env + (len + 1));	/*return string to 5th char*/
 		}
 		env++;
 	}
