@@ -12,7 +12,7 @@ simple shell
 .B simple_shell
 is a basic Unix shell written in C. It reads user input, parses it, and executes the corresponding commands. It supports execution of external programs as well as a limited set of built-in commands.
 
-SH BUILT-IN COMMANDS
+.SH BUILT-IN COMMANDS
 .TP
 .B exit [status]
 Exit the shell with a status.
@@ -47,16 +47,16 @@ is used with a numeric value, the shell exits with that value.
 
 Start the shell in interactive mode:
 
-    $ ./simple_shell
-    $ ls
+    $ ./shell
+    #cisfun$ ls
     simple_shell  main.c  README.md
-    $ echo Hello
+    #cisfun$ echo Hello
     Hello
-    $ exit
+    #cisfun$ exit
 
 Use the shell in non-interactive mode with a single command:
 
-    $ echo "env" | ./simple_shell
+    $ echo "env" | ./shell
     PATH=/usr/local/bin:/usr/bin:/bin
     HOME=/home/user
     ...
