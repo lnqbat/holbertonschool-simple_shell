@@ -68,9 +68,11 @@ $ exit
 - No more than 5 functions per file
 - All your header files should be include guarded
 ## 📝 <ins>Cod_Snipet:
-```
+Below you will find code snippets:
 
-```
+![main](https://github.com/lnqbat/holbertonschool-simple_shell/blob/main/images/screen_main.png)
+
+![_which](https://github.com/lnqbat/holbertonschool-simple_shell/blob/main/images/screen_which.png)
 ## 🔄 <ins>Exemples:
 ```
 
@@ -84,11 +86,15 @@ $ exit
 
 ```
 ## 📚 <ins>Man_SHELL:
+For read and exectue man page SHELL in Terminal use the command below:
 ```
+man ./man_shell.1
 ```
+- For read man_shell is: [Here](https://github.com/lnqbat/holbertonschool-simple_shell/blob/main/man_shell.1)
+- For Output is: [Here](https://github.com/lnqbat/holbertonschool-simple_shell/blob/main/images/screen_man.png)
 ## 📈 <ins> Flowchart:
-```
+Below is the flowchart for the `Simple SHELL`:
 
-```
+![Flowchart](https://github.com/lnqbat/holbertonschool-simple_shell/blob/main/images/flowchart_shell.jpg)
 ## 🧑‍💻 <ins>Authors:
 [Jeffrey BASSET](https://github.com/JeffToken31)    /   [Baptiste Lonqueu](https://github.com/lnqbat)
