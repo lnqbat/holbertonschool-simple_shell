@@ -17,7 +17,7 @@
 - [Man_SHELL](#-man_shell)
 - [Flowchart](#--flowchart)
 - [Authors](#-authors)
-## <ins>Project_Simple_SHELL
+## <ins>Project_Simple_SHELL:
 ### 🧠 Description:
 This project is an implementation of a minimalist shell for UNIX-like systems. It is a simple command-line interpreter, capable of reading user input, parsing it, and executing the requested commands. Like traditional shells such as bash or sh, this mini-shell provides a command-line interface, although its features are intentionally limited within the scope of this project.
 ### 🚀 Features:
@@ -36,12 +36,21 @@ This project is an implementation of a minimalist shell for UNIX-like systems. I
 ![](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)
 
 ### 📁 Structure_project:
-```
+|                                       Files Name                                                  |                     Fonctionnality                      |
+| :---------                                                                                        |:-------------                                           |
+|[`[shell.h]`](https://github.com/lnqbat/holbertonschool-simple_shell/blob/baptiste/shell.h)        |The header file containing function prototypes           |
+|[`[_getenv.c]`](https://github.com/lnqbat/holbertonschool-simple_shell/blob/baptiste/_getenv.c)    |The function searches for the environment string         |
+|[`[utils.c]`](https://github.com/lnqbat/holbertonschool-simple_shell/blob/baptiste/utils.c)        |The function that `free`,`exit`,`env_builtin` and `_atoi`|
+|[`[tokenize.c]`](https://github.com/lnqbat/holbertonschool-simple_shell/blob/baptiste/tokenize.c)  |Split a command line into tokens                         |
+|[`[main.c]`](https://github.com/lnqbat/holbertonschool-simple_shell/blob/baptiste/main.c)          |Entry point of the shell                                 |
+|[`[prompt.c]`](https://github.com/lnqbat/holbertonschool-simple_shell/blob/baptiste/prompt.c)      |Print and read a prompt                                  |
+|[`[exec.c]`](https://github.com/lnqbat/holbertonschool-simple_shell/blob/baptiste/exec.c)          |Execute command in prompt                                |
+|[`[path.c]`](https://github.com/lnqbat/holbertonschool-simple_shell/blob/baptiste/path.c)          |Search the full path of (shell) commands                 |
+|[`[man_shell.1]`](https://github.com/lnqbat/holbertonschool-simple_shell/blob/baptiste/man_shell.1)|The man page SHELL                                       |
 
-```
 ## 💾 <ins>How_to_Compile:
-You need gcc to compile this shell.
-gcc -Wall -Werror -Wextra -pedantic *.c -o hsh
+For the shell it will be compiled like this below and all the files above:
+
 ```
 gcc -Wall -Werror -Wextra -pedantic *.c -o hsh
 ```
