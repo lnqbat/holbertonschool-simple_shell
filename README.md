@@ -76,13 +76,13 @@ $ exit
 - Your shell should not have any memory leaks
 - No more than 5 functions per file
 - All your header files should be include guarded
-## 📝 <ins>Cod_Snipet:
+## 📝 <ins>Code_Snippet:
 Below you will find code snippets:
 
 ![main](https://github.com/lnqbat/holbertonschool-simple_shell/blob/main/images/screen_main.png)
 
 ![_which](https://github.com/lnqbat/holbertonschool-simple_shell/blob/main/images/screen_which.png)
-## 🔄 <ins>Exemples:
+## 🔄 <ins>Examples:
 ```
 $CISFUN ls
 AUTHORS  _getenv.c  images  man_shell.1  prompt.c   shell.h     utils.c
