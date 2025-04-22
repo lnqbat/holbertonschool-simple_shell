@@ -36,17 +36,17 @@ This project is an implementation of a minimalist shell for UNIX-like systems. I
 ![](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)
 
 ### 📁 Structure_project:
-|                                       Files Name                                                        |                     Fonctionnality                      |
-| :---------                                                                                              |:-------------                                           |
-|[`[shell.h]`](https://github.com/lnqbat/holbertonschool-simple_shell/blob/main/shell.h)                  |The header file containing function prototypes           |
-|[`[_getenv.c]`](https://github.com/lnqbat/holbertonschool-simple_shell/blob/main/_getenv.c)              |The function searches for the environment string         |
-|[`[utils.c]`](https://github.com/lnqbat/holbertonschool-simple_shell/blob/main/utils.c)                  |The function that `free`,`exit`,`env_builtin` and `_atoi`|
-|[`[tokenize.c]`](https://github.com/lnqbat/holbertonschool-simple_shell/blob/main/tokenize.c)            |Split a command line into tokens                         |
-|[`[main.c]`](https://github.com/lnqbat/holbertonschool-simple_shell/blob/main/main.c)                    |Entry point of the shell                                 |
-|[`[prompt.c]`](https://github.com/lnqbat/holbertonschool-simple_shell/blob/main/prompt.c)                |Print and read a prompt                                  |
-|[`[exec.c]`](https://github.com/lnqbat/holbertonschool-simple_shell/blob/main/exec.c)                    |Execute command in prompt                                |
-|[`[path.c]`](https://github.com/lnqbat/holbertonschool-simple_shell/blob/main/path.c)                    |Search the full path of (shell) commands                 |
-|[`[man_1_simple_shell.1]`](https://github.com/lnqbat/holbertonschool-simple_shell/blob/main/man_shell.1) |The man page SHELL                                       |
+|                                       Files Name                                                                 |                     Fonctionnality                      |
+| :---------                                                                                                       |:-------------                                           |
+|[`[shell.h]`](https://github.com/lnqbat/holbertonschool-simple_shell/blob/main/shell.h)                           |The header file containing function prototypes           |
+|[`[_getenv.c]`](https://github.com/lnqbat/holbertonschool-simple_shell/blob/main/_getenv.c)                       |The function searches for the environment string         |
+|[`[utils.c]`](https://github.com/lnqbat/holbertonschool-simple_shell/blob/main/utils.c)                           |The function that `free`,`exit`,`env_builtin` and `_atoi`|
+|[`[tokenize.c]`](https://github.com/lnqbat/holbertonschool-simple_shell/blob/main/tokenize.c)                     |Split a command line into tokens                         |
+|[`[main.c]`](https://github.com/lnqbat/holbertonschool-simple_shell/blob/main/main.c)                             |Entry point of the shell                                 |
+|[`[prompt.c]`](https://github.com/lnqbat/holbertonschool-simple_shell/blob/main/prompt.c)                         |Print and read a prompt                                  |
+|[`[exec.c]`](https://github.com/lnqbat/holbertonschool-simple_shell/blob/main/exec.c)                             |Execute command in prompt                                |
+|[`[path.c]`](https://github.com/lnqbat/holbertonschool-simple_shell/blob/main/path.c)                             |Search the full path of (shell) commands                 |
+|[`[man_1_simple_shell.1]`](https://github.com/lnqbat/holbertonschool-simple_shell/blob/main/man_1_simple_shell.1) |The man page SHELL                                       |
 
 ## 💾 <ins>How_to_Compile:
 For the shell it will be compiled like this below and all the files above:
@@ -130,7 +130,7 @@ For read and exectue man page SHELL in Terminal use the command below:
 ```
 man ./man_1_simple_shell.1
 ```
-- For read man_1_simple_shell is: [Here](https://github.com/lnqbat/holbertonschool-simple_shell/blob/main/man_shell.1)
+- For read man_1_simple_shell is: [Here](https://github.com/lnqbat/holbertonschool-simple_shell/blob/main/man_1_simple_shell.1)
 - For Output is: [Here](https://github.com/lnqbat/holbertonschool-simple_shell/blob/main/images/screen_man.png)
 ## 📈 <ins> Flowchart:
 Below is the flowchart for the `Simple SHELL`:
