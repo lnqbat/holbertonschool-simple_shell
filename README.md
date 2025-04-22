@@ -106,4 +106,6 @@ Below is the flowchart for the `Simple SHELL`:
 
 ![Flowchart](https://github.com/lnqbat/holbertonschool-simple_shell/blob/main/images/flowchart_shell.jpg)
 ## 🧑‍💻 <ins>Authors:
-[Jeffrey BASSET](https://github.com/JeffToken31)    /   [Baptiste Lonqueu](https://github.com/lnqbat)
+[Jeffrey BASSET](https://github.com/JeffToken31) / [linkedin](https://www.linkedin.com/in/jeffrey-basset/)
+
+[Baptiste Lonqueu](https://github.com/lnqbat) / [linkedin](https://www.linkedin.com/in/baptiste-lonqueu-9a9b79202/)
