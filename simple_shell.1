@@ -4,7 +4,7 @@
 simple shell
 
 .SH SYNOPSIS
-.B ./shell
+.B ./hsh
 .br
 .b command [argument ...]
 
@@ -47,7 +47,7 @@ is used with a numeric value, the shell exits with that value.
 
 Start the shell in interactive mode:
 
-    $ ./shell
+    $ ./hsh
     #cisfun$ ls
     simple_shell  main.c  README.md
     #cisfun$ echo Hello
@@ -56,7 +56,7 @@ Start the shell in interactive mode:
 
 Use the shell in non-interactive mode with a single command:
 
-    $ echo "env" | ./shell
+    $ echo "env" | ./hsh
     PATH=/usr/local/bin:/usr/bin:/bin
     HOME=/home/user
     ...
@@ -68,7 +68,7 @@ Execute multiple commands from a script file:
     ls
     exit 98
 
-    $ ./simple_shell < script.txt
+    $ ./hsh < script.txt
     Testing shell
     simple_shell  main.c  README.md
 
