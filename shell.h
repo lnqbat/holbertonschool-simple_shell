@@ -31,6 +31,7 @@ int check_builtin(char **argv, int *last_status);
 int dramatic_intro(char **argv, int *last_status);
 int print_ascii(char **argv, int *last_status);
 int print_ascii_2(char **argv, int *last_status);
+int help_command(char **argv, int *last_status);
 
 /**
  * struct builtin - structur containig builtins
