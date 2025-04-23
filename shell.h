@@ -23,8 +23,13 @@ int _atoi(char *s);
 int exit_command(char **argv, int *last_status);
 char **find_path(char **argv, char *line);
 int exec_command(char **argv, int *last_status);
-int env_builtin(void);
+int env_builtin(char **argv, int *last_status);
 
 char *_which(const char *filename);
-
+int check_builtin(char **argv, int *last_status);
+typedef struct builtin
+{
+	char *name;
+	int (*func)(char **argv, int *last_status);
+} builtin;
 #endif

@@ -73,16 +73,12 @@ int exit_command(char **argv, int *last_status)
 {
 	int exit_code;
 
-	if (argv[0] && strcmp(argv[0], "exit") == 0)
-	{
-		if (argv[1])
-			exit_code = _atoi(argv[1]);
-		else
-			exit_code = *last_status;
+	if (argv[1])
+		exit_code = _atoi(argv[1]);
+	else
+		exit_code = *last_status;
 
-		return (exit_code);
-	}
-	return (-1);
+	return (exit_code);
 }
 
 /**
@@ -90,7 +86,7 @@ int exit_command(char **argv, int *last_status)
  * Return: 0 .
  */
 
-int env_builtin(void)
+int env_builtin(char **argv __attribute__((unused)), int *last_status __attribute__((unused)))
 {
 	int i = 0;
 
