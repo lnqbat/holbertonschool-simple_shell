@@ -25,6 +25,9 @@ int check_builtin(char **argv, int *last_status)
 	{
 		if (strcmp(argv[0], builtins[i].name) == 0)	/* Check if builtin */
 		{
+			if (strcmp(argv[0], "exit") == 0)
+				return (0);
+
 			builtins[i].func(argv, last_status);	/* if that execute function */
 			return (0);
 		}
