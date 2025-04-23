@@ -41,7 +41,7 @@ int main(void)
 			free(line);
 			continue;
 		}
-		
+
 		argv = find_path(argv, line);		/* Complete path to execute command*/
 		exec_command(argv, &last_status);	/* Execute command*/
 		free(line);

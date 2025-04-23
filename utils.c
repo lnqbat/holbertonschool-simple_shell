@@ -83,12 +83,17 @@ int exit_command(char **argv, int *last_status)
 
 /**
  * env_builtin - Prints all environment variables to standard output
- * Return: 0 .
+ * @argv: command to check.
+ * @last_status: status used to exit function
+ * Return: 0 if success.
  */
 
-int env_builtin(char **argv __attribute__((unused)), int *last_status __attribute__((unused)))
+int env_builtin(char **argv, int *last_status)
 {
 	int i = 0;
+
+	(void) argv;
+	(void) last_status;
 
 	while (environ[i] != NULL)
 	{

@@ -27,6 +27,13 @@ int env_builtin(char **argv, int *last_status);
 
 char *_which(const char *filename);
 int check_builtin(char **argv, int *last_status);
+
+/**
+ * struct builtin - structur containig builtins
+ *@name: alias command
+ *@func: function linked to name
+ */
+
 typedef struct builtin
 {
 	char *name;
