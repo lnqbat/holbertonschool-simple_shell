@@ -74,7 +74,17 @@ int exit_command(char **argv, int *last_status)
 	int exit_code;
 
 	if (argv[1])
-		exit_code = _atoi(argv[1]);
+	{
+		if (strchr(argv[1], '-'))
+		{
+			fprintf(stderr, "exit: Illegal number: %s\n", argv[1]);
+			exit_code = *last_status;
+		}
+		else
+		{
+			exit_code = _atoi(argv[1]);
+		}
+	}
 	else
 		exit_code = *last_status;
 
