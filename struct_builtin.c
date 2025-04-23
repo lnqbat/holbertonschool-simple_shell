@@ -1,11 +1,5 @@
 #include "shell.h"
 
-builtin builtins[] = {
-	{"exit", exit_command},
-	{"env", env_builtin},
-	{NULL, NULL}
-};
-
 /**
  * check_builtin - handle builtins commands
  * @argv: command to check
@@ -13,11 +7,18 @@ builtin builtins[] = {
  * Return: 0 if success
  */
 
-int check_builtin(char **argv,int *last_status)
+int check_builtin(char **argv, int *last_status)
 {
 	int i;
 
-	for(i = 0; builtins[i].name; i++)
+	builtin builtins[] = {
+		{"exit", exit_command},
+		{"env", env_builtin},
+		{NULL, NULL}
+	};
+
+
+	for (i = 0; builtins[i].name; i++)
 	{
 		if (strcmp(argv[0], builtins[i].name) == 0)	/* Check if builtin */
 		{
