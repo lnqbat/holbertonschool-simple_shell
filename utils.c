@@ -77,7 +77,7 @@ int exit_command(char **argv, int *last_status)
 	{
 		if (strchr(argv[1], '-') || _atoi(argv[1]) == 0)
 		{
-			fprintf(stderr, "exit: Illegal number: %s\n", argv[1]);
+			fprintf(stderr, "./hsh: 1: exit: Illegal number: %s\n", argv[1]);
 			exit_code = (*last_status) = 2;
 		}
 		else
