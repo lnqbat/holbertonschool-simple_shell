@@ -17,6 +17,7 @@ int check_builtin(char **argv, int *last_status)
 		{"matrix", dramatic_intro},
 		{"hugo", print_ascii},
 		{"fabien", print_ascii_2},
+		{"help", help_command},
 		{NULL, NULL}
 	};
 
