@@ -28,20 +28,20 @@ int main(void)
 			free(line);
 			continue;
 		}
-		ret = exit_command(argv, &last_status); /* Check builtin exit command*/
-		if (ret >= 0)
+		if (check_builtin(argv, &last_status) == 0)	/* Check if builtin */
 		{
-			free_argv(argv);
-			free(line);
-			exit(ret);
-		}
-		if (strcmp(argv[0], "env") == 0)	/* Check builtin env command*/
-		{
-			env_builtin();
+			if ((strcmp(argv[0], "exit") == 0))	/* Handle exit return */
+			{
+				ret = exit_command(argv, &last_status);
+				free_argv(argv);
+				free(line);
+				exit(ret);
+			}
 			free_argv(argv);
 			free(line);
 			continue;
 		}
+		
 		argv = find_path(argv, line);		/* Complete path to execute command*/
 		exec_command(argv, &last_status);	/* Execute command*/
 		free(line);
