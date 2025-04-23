@@ -14,6 +14,9 @@ int check_builtin(char **argv, int *last_status)
 	builtin builtins[] = {
 		{"exit", exit_command},
 		{"env", env_builtin},
+		{"matrix", dramatic_intro},
+		{"hugo", print_ascii},
+		{"fabien", print_ascii_2},
 		{NULL, NULL}
 	};
 
