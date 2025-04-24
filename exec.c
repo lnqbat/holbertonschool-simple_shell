@@ -6,7 +6,7 @@
  * @last_status: pointer to keep the status of processus children
  * Return: 0 on success,
  */
-int exec_command(char **argv, int *last_status)
+int exec_command(char **argv, variables_t *var)
 {
 	pid_t pid;
 	int status;
@@ -25,7 +25,7 @@ int exec_command(char **argv, int *last_status)
 	}
 	else
 	{	waitpid(pid, &status, 0);	/* Wait ending of processus children*/
-		*last_status = WEXITSTATUS(status);
+		var->last_status = WEXITSTATUS(status);
 	}
 	free_argv(argv);
 	return (0);

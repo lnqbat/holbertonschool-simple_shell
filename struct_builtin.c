@@ -7,7 +7,7 @@
  * Return: 0 if success
  */
 
-int check_builtin(char **argv, int *last_status)
+int check_builtin(char **argv, variables_t *var)
 {
 	int i;
 
@@ -18,6 +18,7 @@ int check_builtin(char **argv, int *last_status)
 		{"hugo", print_ascii},
 		{"fabien", print_ascii_2},
 		{"help", help_command},
+		{"quit", quit},
 		{NULL, NULL}
 	};
 
@@ -29,7 +30,7 @@ int check_builtin(char **argv, int *last_status)
 			if (strcmp(argv[0], "exit") == 0)
 				return (0);
 
-			builtins[i].func(argv, last_status);	/* if that execute function */
+			builtins[i].func(argv, var);	/* if that execute function */
 			return (0);
 		}
 	}

@@ -6,10 +6,10 @@
  * @last_status: unusable.
  * Return: 0 .
  */
-int print_ascii(char **argv, int *last_status)
+int print_ascii(char **argv, variables_t *var)
 {
 	(void) argv;
-	(void) last_status;
+	(void) var;
 
 	printf("\nThe Best SWE\n");
 
@@ -48,10 +48,10 @@ int print_ascii(char **argv, int *last_status)
  * Return: 0 .
  */
 
-int print_ascii_2(char **argv, int *last_status)
+int print_ascii_2(char **argv, variables_t *var)
 {
 	(void) argv;
-	(void) last_status;
+	(void) var;
 
 	printf("\nThe Best SWE\n");
 

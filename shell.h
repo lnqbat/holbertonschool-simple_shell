@@ -13,26 +13,38 @@
 
 extern char **environ;
 
-void print_prompt(void);
+
+/**
+ * struct variables - allowing to use variables everywhere
+ *@last_status;
+ *@mode_matrix;
+ */
+
+typedef struct variables
+{
+	int last_status;
+	int mode_matrix;
+} variables_t;
+
+void print_prompt(variables_t *var);
 char *read_input(void);
 
 char **tokenize(char *line);
 char *_getenv(char *name);
 int free_argv(char **argv);
 int _atoi(char *s);
-int exit_command(char **argv, int *last_status);
+int exit_command(char **argv, variables_t *var);
 char **find_path(char **argv, char *line);
-int exec_command(char **argv, int *last_status);
-int env_builtin(char **argv, int *last_status);
+int exec_command(char **argv, variables_t *var);
+int env_builtin(char **argv, variables_t *var);
 
 char *_which(const char *filename);
-int check_builtin(char **argv, int *last_status);
-
-int dramatic_intro(char **argv, int *last_status);
-int print_ascii(char **argv, int *last_status);
-int print_ascii_2(char **argv, int *last_status);
-int help_command(char **argv, int *last_status);
-
+int check_builtin(char **argv, variables_t *var);
+int quit(char **argv, variables_t *var);
+int dramatic_intro(char **argv, variables_t *var);
+int print_ascii(char **argv, variables_t *var);
+int print_ascii_2(char **argv, variables_t *var);
+int help_command(char **argv, variables_t *var);
 /**
  * struct builtin - structur containig builtins
  *@name: alias command
@@ -42,6 +54,6 @@ int help_command(char **argv, int *last_status);
 typedef struct builtin
 {
 	char *name;
-	int (*func)(char **argv, int *last_status);
+	int (*func)(char **argv, variables_t *var);
 } builtin;
 #endif

@@ -2,10 +2,10 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <time.h>
-
+#include "shell.h"
 #define WIDTH 500
 #define HEIGHT 200
-#define DURATION 10 /* durée de l'effet en secondes */
+#define DURATION 4 /* durée de l'effet en secondes */
 
 const char charset[] = {
 	"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&*()"
@@ -64,24 +64,29 @@ void matrix_rain(void)
  * @last_status: Unused pointer to last shell status
  * Return: Always returns 0
  */
-int dramatic_intro(char **argv, int *last_status)
+int dramatic_intro(char **argv, variables_t *var)
 {
 	int count = 5;
 
 	(void) argv;
-	(void) last_status;
-
+	(void) var;
+	printf("\n \033[1;31mTesting password...\n");
+	sleep(1);
+	printf("\n \033[1;31mPassword allowed...\n");
+	sleep(1);
 	printf("\n🟢 Préparation de la Matrice...\n");
 	sleep(1);
+	system("ffplay -autoexit -nodisp ./matrix.wav > /dev/null 2>&1 &");
 	while (count > 0)
 	{
-		printf("📟 Insertion dans la Matrice dans... %d\n", count);
+		printf("📟 \033[1;32mInsertion dans la Matrice dans... %d\n", count);
 		sleep(1);
 		count--;
 	}
 	printf("\n🔌 Connexion établie. you have a haked...\n");
 	sleep(1);
 	matrix_rain();
+	var->mode_matrix = 1;
 	system("clear");
 	return (0);
 }

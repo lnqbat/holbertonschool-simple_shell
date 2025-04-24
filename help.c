@@ -7,10 +7,10 @@
  * Return: 0 .
  */
 
-int help_command(char **argv, int *last_status)
+int help_command(char **argv, variables_t *var)
 {
 	(void) argv;
-	(void) last_status;
+	(void) var;
 
 	printf("Shell Help:\n");
 	printf("Available built-in commands:\n");

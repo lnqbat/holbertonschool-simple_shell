@@ -69,7 +69,7 @@ int _atoi(char *s)
  * Return:  'exit' was handled
  */
 
-int exit_command(char **argv, int *last_status)
+int exit_command(char **argv, variables_t *var)
 {
 	int exit_code;
 
@@ -78,7 +78,7 @@ int exit_command(char **argv, int *last_status)
 		if (strchr(argv[1], '-') || _atoi(argv[1]) == 0)
 		{
 			fprintf(stderr, "./hsh: 1: exit: Illegal number: %s\n", argv[1]);
-			exit_code = (*last_status) = 2;
+			exit_code = var->last_status = 2;
 		}
 		else
 		{
@@ -86,7 +86,7 @@ int exit_command(char **argv, int *last_status)
 		}
 	}
 	else
-		exit_code = *last_status;
+		exit_code = var->last_status;
 
 	return (exit_code);
 }
@@ -98,17 +98,34 @@ int exit_command(char **argv, int *last_status)
  * Return: 0 if success.
  */
 
-int env_builtin(char **argv, int *last_status)
+int env_builtin(char **argv, variables_t *var)
 {
 	int i = 0;
 
 	(void) argv;
-	(void) last_status;
-
+	(void) var;
 	while (environ[i] != NULL)
 	{
 		printf("%s\n", environ[i]);
 		i++;
 	}
+	return (0);
+}
+
+/**
+ * quit - quit matrix mode
+ * @argv: command to check.
+ * @last_status: status used to exit function
+ * Return: No needed just print
+ */
+
+int quit(char **argv, variables_t *var)
+{
+	(void) argv;
+
+	if (var->mode_matrix == 0)
+		var->mode_matrix = 1;
+	else
+		var->mode_matrix = 0;
 	return (0);
 }

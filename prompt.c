@@ -5,9 +5,12 @@
  * Return: No needed just print
  */
 
-void print_prompt(void)
+void print_prompt(variables_t *var)
 {
-	printf("#cisfun$ ");
+	if (var->mode_matrix == 1)
+		printf("\033[1;32m#matrix$ ");
+	else
+		printf("\033[0m#cisfun$ ");
 }
 
 /**
