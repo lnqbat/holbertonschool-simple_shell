@@ -2,6 +2,7 @@
 
 /**
  * print_prompt - print prompt
+ * @var: to lauch matrix mode
  * Return: No needed just print
  */
 

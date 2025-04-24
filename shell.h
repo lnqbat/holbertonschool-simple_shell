@@ -16,8 +16,8 @@ extern char **environ;
 
 /**
  * struct variables - allowing to use variables everywhere
- *@last_status;
- *@mode_matrix;
+ *@last_status: to keep status of last process children
+ *@mode_matrix: to launch matrix mode
  */
 
 typedef struct variables

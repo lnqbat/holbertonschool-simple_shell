@@ -3,7 +3,7 @@
 /**
  * check_builtin - handle builtins commands
  * @argv: command to check
- * @last_status: only for exit command
+ * @var: for exit command and matrix mode
  * Return: 0 if success
  */
 

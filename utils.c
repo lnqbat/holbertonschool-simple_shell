@@ -65,8 +65,8 @@ int _atoi(char *s)
 /**
  * exit_command - Handles the built-in 'exit' command
  * @argv: array of command arguments
- * @last_status: to exit with last status of processus children
- * Return:  'exit' was handled
+ * @var: to exit with last status of processus children
+ * Return: 'exit' was handled
  */
 
 int exit_command(char **argv, variables_t *var)
@@ -94,7 +94,7 @@ int exit_command(char **argv, variables_t *var)
 /**
  * env_builtin - Prints all environment variables to standard output
  * @argv: command to check.
- * @last_status: status used to exit function
+ * @var: status used to exit function
  * Return: 0 if success.
  */
 
@@ -115,7 +115,7 @@ int env_builtin(char **argv, variables_t *var)
 /**
  * quit - quit matrix mode
  * @argv: command to check.
- * @last_status: status used to exit function
+ * @var: status used to exit function
  * Return: No needed just print
  */
 

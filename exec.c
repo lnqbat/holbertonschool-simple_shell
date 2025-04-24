@@ -3,7 +3,7 @@
 /**
  * exec_command - execute command
  * @argv: command tokenised to execute
- * @last_status: pointer to keep the status of processus children
+ * @var: pointer of struct to last-status
  * Return: 0 on success,
  */
 int exec_command(char **argv, variables_t *var)

@@ -3,7 +3,7 @@
 /**
  * help_command - hep function that help
  * @argv: not used
- * @last_status: not used
+ * @var: not used
  * Return: 0 .
  */
 

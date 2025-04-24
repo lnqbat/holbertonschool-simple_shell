@@ -61,7 +61,7 @@ void matrix_rain(void)
 /**
  * dramatic_intro - Displays a dramatic countdown and launches the Matrix
  * @argv: Unused command-line arguments
- * @last_status: Unused pointer to last shell status
+ * @var: Unused
  * Return: Always returns 0
  */
 int dramatic_intro(char **argv, variables_t *var)

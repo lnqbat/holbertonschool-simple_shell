@@ -7,14 +7,11 @@
 
 int main(void)
 {
-	char *line;
+	char *line, **argv;
 	int is_prompt, ret;
-	char **argv;
 	variables_t var;
 
-	var.last_status = 0;
-	var.mode_matrix = 0;
-
+	var.last_status = 0, var.mode_matrix = 0;
 	while (1)
 	{
 		is_prompt = isatty(STDIN_FILENO);	/*Check if is intéractive mode*/
@@ -41,8 +38,7 @@ int main(void)
 				free(line);
 				exit(ret);
 			}
-			free_argv(argv);
-			free(line);
+			free_argv(argv), free(line);
 			continue;
 		}
 

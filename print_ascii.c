@@ -3,7 +3,7 @@
 /**
  * print_ascii - Print hugo in terminal.
  * @argv: unusable.
- * @last_status: unusable.
+ * @var: unusable.
  * Return: 0 .
  */
 int print_ascii(char **argv, variables_t *var)
@@ -44,7 +44,7 @@ int print_ascii(char **argv, variables_t *var)
 /**
  * print_ascii_2 - Print fabien in terminal
  * @argv: unusable.
- * @last_status: unusable.
+ * @var: unusable.
  * Return: 0 .
  */
 
