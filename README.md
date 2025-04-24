@@ -23,7 +23,7 @@ This project is an implementation of a minimalist shell for UNIX-like systems. I
 ### 🚀 Features:
 - Display a prompt and wait for user input
 - Parse and execute basic shell commands (`ls`, `pwd`, `echo`, etc.)
-- Built-in commands: exit, env
+- Built-in commands: `exit`, `env`, `help`
 - Execution of programs in /bin/ (`/bin/ls`)
 - Handling command paths via `PATH`
 - Fork and execute commands via `execve`
@@ -47,6 +47,8 @@ This project is an implementation of a minimalist shell for UNIX-like systems. I
 |[`[exec.c]`](https://github.com/lnqbat/holbertonschool-simple_shell/blob/main/exec.c)                             |Execute command in prompt                                |
 |[`[path.c]`](https://github.com/lnqbat/holbertonschool-simple_shell/blob/main/path.c)                             |Search the full path of (shell) commands                 |
 |[`[man_1_simple_shell.1]`](https://github.com/lnqbat/holbertonschool-simple_shell/blob/main/man_1_simple_shell.1) |The man page SHELL                                       |
+|[`[struct_builtin.c]`](https://github.com/lnqbat/holbertonschool-simple_shell/blob/main/struct_builtin.c)         |Use for command pass if it is a built-in                 |
+|[`[help.c]`](https://github.com/lnqbat/holbertonschool-simple_shell/blob/main/help.c)                             |The help function command                                |
 
 ## 💾 <ins>How_to_Compile:
 For the shell it will be compiled like this below and all the files above:
@@ -79,7 +81,7 @@ $ exit
 ## 📝 <ins>Code_Snippet:
 Below you will find code snippets:
 
-![main](https://github.com/lnqbat/holbertonschool-simple_shell/blob/main/images/screen_main.png)
+![main](https://github.com/lnqbat/holbertonschool-simple_shell/blob/main/images/main_update.png)
 
 ![_which](https://github.com/lnqbat/holbertonschool-simple_shell/blob/main/images/screen_which.png)
 ## 🔄 <ins>Examples:
@@ -131,7 +133,7 @@ For read and exectue man page SHELL in Terminal use the command below:
 man ./man_1_simple_shell.1
 ```
 - For read man_1_simple_shell is: [Here](https://github.com/lnqbat/holbertonschool-simple_shell/blob/main/man_1_simple_shell.1)
-- For Output is: [Here](https://github.com/lnqbat/holbertonschool-simple_shell/blob/main/images/screen_man.png)
+- For Output is: [Here](https://github.com/lnqbat/holbertonschool-simple_shell/blob/main/images/man_page_update.png)
 ## 📈 <ins> Flowchart:
 Below is the flowchart for the `Simple SHELL`:
 
